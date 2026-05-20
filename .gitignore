@@ -1,4 +1,4 @@
-# Compiled executables
+
 *.exe
 *.out
 *.app
@@ -8,35 +8,35 @@
 *.dll
 *.a
 
-# Build folders
+
 build/
 bin/
 Debug/
 Release/
 
-# CMake
+
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
 compile_commands.json
 
-# VS Code
+
 .vscode/
 
-# Visual Studio
+
 .vs/
 *.sln
 *.vcxproj*
 *.pdb
 
-# Temporary/editor files
+
 *.tmp
 *.log
 *.swp
 *.DS_Store
 Thumbs.db
 
-# Generated program files
+
 main
 a.out
