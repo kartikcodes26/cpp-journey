@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.H>
 using namespace std;
 
 void up(int &currentFloor, int floor)
@@ -7,8 +8,13 @@ void up(int &currentFloor, int floor)
     while(floor != currentFloor)
     {
         currentFloor++;
+        Beep(2000, 250);
+        Sleep(1000);
         cout << "Floor : " << currentFloor << '\n';   
     }
+    Beep(2000, 100);
+    sleep(2);
+    Beep(2000, 100);
     cout << "Reached Floor " << floor << '\n';
 }
 
@@ -18,8 +24,12 @@ void down(int &currentFloor, int floor)
     while(floor != currentFloor)
     {
         currentFloor--;
+        Beep(2000, 250);
+        Sleep(1000);
         cout << "Floor : " << currentFloor << '\n'; 
     }
+    Beep(2000, 100);
+    Beep(2000, 100);
     cout << "Reached Floor " << floor << '\n';
 }
 int main()
