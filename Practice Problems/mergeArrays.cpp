@@ -21,6 +21,5 @@ int main()
     {
         cout << merged[j] << " , ";
     }
-
     return 0;
 }

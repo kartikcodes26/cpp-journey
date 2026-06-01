@@ -18,9 +18,9 @@ void reverseArray(int arr[], int size)
 
 int main()
 {
-    int arr[4] = {1, 2, 3, 4};
-    reverseArray(arr, 4);
-    for(int i = 0; i < 4;i++)
+    int arr[4] = {1, 2};
+    reverseArray(arr, 2);
+    for(int i = 0; i < 2;i++)
     {
         cout << arr[i] << " , ";
     }
