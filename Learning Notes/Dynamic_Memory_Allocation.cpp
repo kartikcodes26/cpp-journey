@@ -3,22 +3,21 @@ using namespace std;
 
 int main()
 {
-    int* p = new int;
+    int *p = new int;
     // Stack memory allocation + Heap memory allocation
     // total bytes consumed = 8 + 4 = 12
     // Stack memory allocation = Static allocation
     // Heap memory allocation = Dynamic allocation
 
-    //Array allocation
+    // Array allocation
     int *arr = new int[5];
-    //Bytes consumed = 8 + 5 * 4 = 28 bytes
+    // Bytes consumed = 8 + 5 * 4 = 28 bytes
 
-
-    //Variable Array
+    // Variable Array
     int n;
     int *vArr = new int[n];
 
-
+    cout << sizeof(vArr) << '\n'; // prints 8 as it is nothing but a pointer storing the memory address of the starting point of the heap
 
     return 0;
 }
