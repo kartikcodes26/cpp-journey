@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdio>
 using namespace std;
 
 fstream file("Database.txt", ios::in | ios::out | ios::app);
+string currentuser;
 void signup()
 {
     string name;
@@ -54,7 +56,7 @@ void signup()
     cout << "Account Creation Sucessful \n \n";
 }
 
-void login()
+int login()
 {
     string name;
     string tname;
@@ -76,7 +78,7 @@ void login()
 
         if (name == tname)
         {
-            cout << "Accont found \n";
+            cout << "Account found \n";
             found = true;
             tpasswd = line.substr(i + 1);
 
@@ -87,8 +89,9 @@ void login()
                 cin >> passwd;
                 if (passwd == tpasswd)
                 {
-                    cout << "You're logged in \n";
-                    return;
+                    cout << "\nYou're logged in \n\n";
+                    currentuser = tname;
+                    return 1;
                 }
                 else
                 {
@@ -96,22 +99,59 @@ void login()
                     cout << "incorrect password. Try again " << z << " tries left \n";
                 }
             }
-            return;
+            return 0;
         }
     }
 
     if (!found)
     {
         cout << "Account not found \n";
+        return 0;
     }
 }
+
+void deleteAcc()
+{
+    string line;
+    string name;
+    bool loggedin = false;
+    loggedin = login();
+
+    if(loggedin)
+    {
+        ofstream temp("temp.txt");
+        file.clear();
+        file.seekg(0);
+
+        while(getline(file, line))
+        {
+            name = line.substr(0, line.find(','));
+            if(name != currentuser)
+            {
+                temp << line << '\n';
+            }
+        }
+        file.close();
+        temp.close();
+        remove("Database.txt");
+        rename("temp.txt", "Database.txt");
+        cout << "Account Deletion Successful \n";
+        currentuser = "";
+    }
+    else
+    {
+        cout << "Login Failed, Account deletion cannot proceed further \n";
+    }
+}
+
 int main()
 {
     int choice;
     bool running = true;
+
     while (running)
     {
-        cout << "\n 1) Signup \n 2) Login \n 3) Exit\n";
+        cout << "\n 1) Signup \n 2) Login \n 3) Delete Account\n 4) Exit\n";
         cout << "Enter your choice : ";
         cin >> choice;
         switch (choice)
@@ -125,7 +165,11 @@ int main()
             break;
 
         case 3:
-            cout << "\nThanks for using out system\n";
+            deleteAcc();
+            break;
+
+        case 4:
+            cout << "\nThanks for using our system\n";
             running = false;
             break;
 
@@ -135,3 +179,9 @@ int main()
     }
     return 0;
 }
+
+/*todo
+1) Delete Account
+2) Change Password
+
+*/
