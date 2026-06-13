@@ -4,10 +4,12 @@
 #include <cstdio>
 using namespace std;
 
-fstream file("Database.txt", ios::in | ios::out | ios::app);
+
 string currentuser;
+
 void signup()
 {
+    fstream file("Database.txt", ios::in | ios::out | ios::app);
     string name;
     string passwd;
     string temp;
@@ -58,6 +60,8 @@ void signup()
 
 int login()
 {
+    fstream file("Database.txt", ios::in | ios::out | ios::app);
+
     string name;
     string tname;
     string passwd;
@@ -74,7 +78,7 @@ int login()
     while (getline(file, line))
     {
         i = line.find(',');
-        tname = line.substr(0, line.find(','));
+        tname = line.substr(0, i);
 
         if (name == tname)
         {
@@ -108,25 +112,28 @@ int login()
         cout << "Account not found \n";
         return 0;
     }
+    return 0;
 }
 
 void deleteAcc()
 {
+    fstream file("Database.txt", ios::in | ios::out | ios::app);
+
     string line;
     string name;
     bool loggedin = false;
     loggedin = login();
 
-    if(loggedin)
+    if (loggedin)
     {
         ofstream temp("temp.txt");
         file.clear();
         file.seekg(0);
 
-        while(getline(file, line))
+        while (getline(file, line))
         {
             name = line.substr(0, line.find(','));
-            if(name != currentuser)
+            if (name != currentuser)
             {
                 temp << line << '\n';
             }
@@ -144,6 +151,69 @@ void deleteAcc()
     }
 }
 
+void changepasswd()
+{
+    fstream file("Database.txt", ios::in | ios::out | ios::app);
+
+    string line;
+    string name;
+    string npasswd;
+    string temp;
+    bool loggedin = false;
+    loggedin = login();
+
+    if(loggedin)
+    {
+        file.clear();
+        file.seekg(0);
+        cout << "Set your password : ";
+        cin >> temp;
+    }
+    else
+    {
+        cout << "Login Failed \n";
+        return;
+    }
+    
+
+    while (true)
+    {
+        cout << "Re-enter your password : ";
+        cin >> npasswd;
+
+        if (temp != npasswd)
+        {
+            cout << "Passwords didnt match \ntry again\n";
+        }
+        else
+        {
+            break;
+        }
+    }
+    ofstream tempobj("temp.txt");
+
+    while(getline(file, line))
+    {
+        name = line.substr(0, line.find(','));
+        if(name == currentuser)
+        {
+            tempobj << name + ',' + npasswd << '\n';
+        }
+        else
+        {
+            tempobj << line << '\n';
+        }
+    }
+
+    file.close();
+    tempobj.close();
+    remove("Database.txt");
+    rename("temp.txt", "Database.txt");
+
+    cout << "Password Changed Successfully \n";
+    currentuser = "";
+}
+
 int main()
 {
     int choice;
@@ -151,7 +221,7 @@ int main()
 
     while (running)
     {
-        cout << "\n 1) Signup \n 2) Login \n 3) Delete Account\n 4) Exit\n";
+        cout << "\n 1) Signup \n 2) Login \n 3) Delete Account\n 4) Change Password\n 5) Exit\n";
         cout << "Enter your choice : ";
         cin >> choice;
         switch (choice)
@@ -167,8 +237,12 @@ int main()
         case 3:
             deleteAcc();
             break;
-
+        
         case 4:
+            changepasswd();
+            break;
+
+        case 5:
             cout << "\nThanks for using our system\n";
             running = false;
             break;
