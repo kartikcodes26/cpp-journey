@@ -253,9 +253,3 @@ int main()
     }
     return 0;
 }
-
-/*todo
-1) Delete Account
-2) Change Password
-
-*/

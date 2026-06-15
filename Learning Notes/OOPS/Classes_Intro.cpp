@@ -26,8 +26,8 @@ public:
 };
 int main()
 {
-    laptop asus(16);
-    asus.printspecs();
+    // laptop asus(16);
+    // asus.printspecs();
     laptop *macbook = new laptop(8); // i dont understand this
     /*
     1. Create laptop object somewhere in heap memory
@@ -35,8 +35,9 @@ int main()
     3. Store address inside macbook
     */
 
-    
+    macbook -> printspecs();  //Both do the same task
+    (*macbook).printspecs();
     delete macbook;               // Now calls destructor
-    macbook -> printspecs();
+    
     return 0;
 }
