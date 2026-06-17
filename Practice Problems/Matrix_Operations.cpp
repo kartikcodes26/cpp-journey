@@ -67,11 +67,11 @@ int diagonalSum(int matrix[][3], int rows, int columns)
         cout << "Diagonal sum is not possible as it is not a square matrix";
         return -1;
     }
+
     int sum = 0;
     for(int i = 0; i < rows; i++)
     {
         sum += matrix[i][i];
-
     }
     return sum;
 
