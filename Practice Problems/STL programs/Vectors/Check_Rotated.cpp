@@ -25,7 +25,7 @@ bool checkRotated(vector<int> &vec)
 
 int main()
 {
-    // 1, 2, 4, 7
+    
     vector<int> vec = {4, 7, 1, 2};
     cout << checkRotated(vec);
     return 0;

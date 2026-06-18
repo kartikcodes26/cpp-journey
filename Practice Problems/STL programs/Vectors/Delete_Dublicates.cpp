@@ -5,7 +5,7 @@ using namespace std;
 
 void printvector(const vector<int> &vec)
 {
-    for (auto element : vec)
+    for (const auto &element : vec)
     {
         cout << element << ' ';
     }
@@ -18,7 +18,7 @@ void DeleteDup(vector<int> &vec)
     int size = vec.size();
 
     for (int i = 1; i < size; i++)
-    {
+    { 
         if (vec[i] != vec[index])
         {
             index++;
