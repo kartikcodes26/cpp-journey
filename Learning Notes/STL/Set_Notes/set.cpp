@@ -41,7 +41,7 @@ int main()
 
     set<int> s2 = {1,2,3,7,8,9,10,11};
     auto lower = s2.lower_bound(2); // returns an iterator
-    auto higher = s2.upper_bound(7);
+    auto higher = s2.upper_bound(9);
 
     for(auto it = lower; it != higher; ++it)
     {

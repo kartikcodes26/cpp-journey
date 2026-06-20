@@ -42,6 +42,11 @@ int main()
 
     deq.push_front(5);
     deq.push_back(15);
+    
+    deq.pop_front();
+    deq.pop_back();
 
+    deq.prepend_range()
+    printDeque(deq);
     return 0;
 }
