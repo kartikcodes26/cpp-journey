@@ -1,0 +1,15 @@
+What are the states of matter ?,Water,Liquid,Fire,Cloud,1
+What planet is known as the Red Planet ?,Earth,Mars,Jupiter,Venus,1
+What is the capital of France ?,London,Paris,Rome,Berlin,1
+How many continents are there ?,5,6,7,8,2
+What is the largest ocean on Earth ?,Atlantic,Indian,Pacific,Arctic,2
+What gas do humans breathe in ?,Carbon Dioxide,Oxygen,Nitrogen,Hydrogen,1
+What is 5 + 7 ?,10,11,12,13,2
+Who wrote Romeo and Juliet ?,Shakespeare,Newton,Einstein,Darwin,0
+What is the fastest land animal ?,Lion,Cheetah,Tiger,Horse,1
+Which animal is known as the King of the Jungle ?,Elephant,Lion,Monkey,Bear,1
+What is the boiling point of water in Celsius ?,50,75,100,150,2
+Which is the largest planet in our solar system ?,Earth,Mars,Jupiter,Saturn,2
+What is the currency of Japan ?,Dollar,Yen,Rupee,Euro,1
+Which organ pumps blood in the human body ?,Brain,Lungs,Heart,Stomach,2
+What is the chemical symbol for Oxygen ?,O,H,O2,C,2
